@@ -1,23 +1,31 @@
 import './App.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Header from './components/Header/Header';
 import Main from './components/Main/Main';
 import About from './components/About/About';
 import Orders from './components/Orders/Orders';
+import Home from './components/Home/Home';
 
 function App() {
   const router = createBrowserRouter([
     {
       path: '/',
-      element: <Main></Main>
-    },
-    {
-      path: 'about',
-      element: <About></About>
-    },
-    {
-      path: 'orders',
-      element: <Orders></Orders>
+      element: <Main></Main>,
+      children: [
+        {
+          path: '/',
+          loader: () => fetch('tshirts.json'),
+          element: <Home></Home>
+        },
+        {
+          path: 'about',
+          element: <About></About>
+        },
+        {
+          path: 'orders',
+          element: <Orders></Orders>
+        }
+
+      ]
     }
   ]);
   return (
