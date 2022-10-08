@@ -8,7 +8,7 @@ const Tshirt = ({ tshirt, handleAddToCart }) => {
       <img src={picture}></img>
       <h2>{name}</h2>
       <h3>Price : {price}</h3>
-      <button onClick={() => handleAddToCart(_id)}>Buy Now</button>
+      <button onClick={() => handleAddToCart(tshirt)}>Buy Now</button>
     </div>
   );
 };
