@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { RingContext } from '../Grandpa/Grandpa';
+import Special from '../Special/Special';
 
 const Myself = ({ house }) => {
   const ring = useContext(RingContext)
@@ -7,7 +8,7 @@ const Myself = ({ house }) => {
     <div>
       <h1>Myself</h1>
       <p>House: {house}</p>
-      <p>House: {ring}</p>
+      <Special house={house}></Special>
     </div>
   );
 };
